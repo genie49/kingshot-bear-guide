@@ -200,12 +200,14 @@ export const CARDS: CardData[] = [
     title: '실전에서 확인!',
     body: (
       <p>
-        집결 대기 화면에서 <strong>모두의 첫 영웅</strong>이 보여요. 이제
-        곰 잡으러 가요! 🐻
+        집결 대기 화면에서 <strong>모두의 첫 영웅</strong>이 보여요.
+        아래에서 <strong>Saye · uhuy는 안 좋은 예시</strong>, 나머지는{' '}
+        <strong>좋은 예시</strong>예요. 이제 곰 잡으러 가요! 🐻
       </p>
     ),
     image: rallyMembers,
-    imageAlt: '집결 멤버 목록에서 올바른 첫 영웅에 동그라미 표시',
+    imageAlt:
+      '집결 멤버 목록 — Saye와 uhuy는 잘못된 첫 영웅, 나머지는 올바른 첫 영웅(동그라미 표시)',
     checklist: [
       '부대마다 첫 슬롯 = 첸코 · 연우 · 아마네 중 1명',
       'Equalize로 병력 균등 분배',
