@@ -13,7 +13,7 @@ export default function App() {
       <Carousel onIndexChange={setIndex}>
         {CARDS.map((card, i) => (
           <div className="embla__slide" key={card.id}>
-            <Card card={card} eager={i < 2} />
+            <Card card={card} eager={i < 5} />
           </div>
         ))}
       </Carousel>
