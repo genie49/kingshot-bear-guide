@@ -170,9 +170,10 @@ export const CARDS: CardData[] = [
     title: '나눠진 병력으로 모든 집결에!',
     body: (
       <p>
-        Equalize를 누른 뒤의 모습이에요. 한 부대에 <strong>1,053명</strong>씩
-        담겨요. 이렇게 <strong>부대 수만큼 여러 집결에 모두 참여</strong>하는
-        게 고득점 비결이에요.
+        Equalize를 누른 뒤의 모습이에요. 내 병력이 부대마다{' '}
+        <strong>똑같이 나눠</strong> 담겨요. 이렇게{' '}
+        <strong>부대 수만큼 여러 집결에 모두 참여</strong>하는 게 고득점
+        비결이에요.
       </p>
     ),
     image: deployHalfTroops,
