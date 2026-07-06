@@ -137,29 +137,16 @@ export const CARDS: CardData[] = [
     id: 'fix-select',
     variant: 'screenshot',
     badge: 'STEP 3',
-    title: '셋 중 하나만 고르기',
+    title: '셋 중 한 명만 고르기',
     body: (
       <p>
-        <strong>첸코 · 연우 · 아마네</strong>만 선택! 나머지 영웅은 모두
-        ❌예요.
+        첸코 · 연우 · 아마네 중 <strong>딱 한 명만</strong> 골라 첫 번째
+        칸에! 셋 다 한 부대에 넣으면 안 돼요. 남은 두 명은{' '}
+        <strong>다른 집결에 보낼 부대의 첫 번째 칸</strong>에 쓰세요.
       </p>
     ),
     image: selectHeroesOx,
     imageAlt: '영웅 선택 팝업에서 첸코와 연우에 동그라미, 나머지는 X 표시',
-  },
-  {
-    id: 'troops-matter',
-    variant: 'screenshot',
-    badge: '한 가지 더',
-    title: '병력은 최대한 많이',
-    body: (
-      <p>
-        슬라이더를 대충 두면 <strong>1,053명</strong>만 가요. 병력이
-        많을수록 곰을 더 세게 때릴 수 있어요.
-      </p>
-    ),
-    image: deployHalfTroops,
-    imageAlt: '병력이 절반만 채워진 배치 화면',
   },
   {
     id: 'equalize',
@@ -168,13 +155,28 @@ export const CARDS: CardData[] = [
     title: 'Equalize 한 번이면 끝',
     body: (
       <p>
-        아래 <strong>저울 버튼(Equalize)</strong>은 보유 병력을 부대 수만큼
-        자동으로 균등하게 나눠줘요. 한 번에 <strong>3,141명!</strong> 모든
-        집결에 편하게 최대 병력을 보낼 수 있어요.
+        아래 <strong>저울 버튼(Equalize)</strong>을 누르면 보유 병력이 부대
+        수만큼 <strong>자동으로 균등하게</strong> 나눠져요. 슬라이더를
+        일일이 조절할 필요가 없어요.
       </p>
     ),
     image: deployEqualize,
-    imageAlt: 'Equalize 버튼에 동그라미, 병력이 가득 찬 배치 화면',
+    imageAlt: 'Equalize 버튼에 동그라미 표시된 배치 화면',
+  },
+  {
+    id: 'troops-split',
+    variant: 'screenshot',
+    badge: '이렇게 돼요',
+    title: '나눠진 병력으로 모든 집결에!',
+    body: (
+      <p>
+        Equalize를 누른 뒤의 모습이에요. 한 부대에 <strong>1,053명</strong>씩
+        담겨요. 이렇게 <strong>부대 수만큼 여러 집결에 모두 참여</strong>하는
+        게 고득점 비결이에요.
+      </p>
+    ),
+    image: deployHalfTroops,
+    imageAlt: 'Equalize 후 병력이 균등 분배된 배치 화면',
   },
   {
     id: 'distance-tip',
@@ -204,9 +206,9 @@ export const CARDS: CardData[] = [
     image: rallyMembers,
     imageAlt: '집결 멤버 목록에서 올바른 첫 영웅에 동그라미 표시',
     checklist: [
-      '첫 슬롯 = 첸코 · 연우 · 아마네',
-      'Equalize로 병력 꽉 채우기',
-      '곰에서 가까운 집결 참여',
+      '부대마다 첫 슬롯 = 첸코 · 연우 · 아마네 중 1명',
+      'Equalize로 병력 균등 분배',
+      '여러 집결에 모두 참여 + 가까운 집결 우선',
     ],
   },
 ]
