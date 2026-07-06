@@ -1,5 +1,4 @@
 import type { CardData } from '../data/cards'
-import { HEROES } from '../data/cards'
 
 export function Card({ card, eager = false }: { card: CardData; eager?: boolean }) {
   return (
@@ -12,9 +11,9 @@ export function Card({ card, eager = false }: { card: CardData; eager?: boolean 
       )}
       <h2 className="card__title">{card.title}</h2>
       <div className="card__body">{card.body}</div>
-      {card.variant === 'heroes' && (
+      {card.heroes && (
         <ul className="hero-row">
-          {HEROES.map((hero) => (
+          {card.heroes.map((hero) => (
             <li key={hero.name} className="hero-row__item">
               <img
                 src={hero.image}
@@ -45,9 +44,7 @@ export function Card({ card, eager = false }: { card: CardData; eager?: boolean 
           />
         </div>
       )}
-      {card.variant === 'cover' && (
-        <p className="card__swipe-cue">옆으로 밀어서 시작 →</p>
-      )}
+      {card.cue && <p className="card__swipe-cue">{card.cue}</p>}
     </article>
   )
 }

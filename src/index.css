@@ -44,6 +44,38 @@ body {
   overflow: hidden;
 }
 
+/* --- 언어 토글 --- */
+.lang-toggle {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top));
+  right: 12px;
+  z-index: 10;
+  display: flex;
+  gap: 2px;
+  background: rgba(11, 8, 5, 0.55);
+  border: 1px solid rgba(232, 176, 75, 0.35);
+  border-radius: 999px;
+  padding: 3px;
+  backdrop-filter: blur(4px);
+}
+
+.lang-toggle__btn {
+  border: 0;
+  background: transparent;
+  color: var(--ink-dim);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.lang-toggle__btn--active {
+  background: var(--gold);
+  color: #241a10;
+}
+
 /* --- 캐러셀 --- */
 .embla {
   flex: 1;
