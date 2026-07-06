@@ -1,2 +1,267 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0b0805; color: #f5ead7; }
+:root {
+  --bg: #17100a;
+  --bg-card: #241a10;
+  --ink: #f5ead7;
+  --ink-dim: #c4b394;
+  --gold: #e8b04b;
+  --radius: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: #0b0805;
+  color: var(--ink);
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+.app {
+  position: relative;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--bg) 0%, #100a06 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- 캐러셀 --- */
+.embla {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  height: 100%;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 20px 20px 8px;
+}
+
+/* --- 카드 공통 --- */
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid rgba(232, 176, 75, 0.25);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  overflow: hidden;
+}
+
+.card__badge {
+  align-self: flex-start;
+  background: var(--gold);
+  color: #241a10;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.card__title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--gold);
+}
+
+.card__body {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__body strong {
+  color: var(--ink);
+}
+
+/* --- 표지 --- */
+.card--cover {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.card--cover .card__title {
+  font-size: 34px;
+  color: var(--ink);
+  word-break: keep-all;
+}
+
+.card__emoji {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.card__swipe-cue {
+  margin-top: 28px;
+  color: var(--gold);
+  font-weight: 700;
+  animation: cue 1.6s ease-in-out infinite;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(8px);
+    opacity: 1;
+  }
+}
+
+/* --- 이미지 --- */
+.card__imagewrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* --- 영웅 카드 --- */
+.hero-row {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.hero-row__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232, 176, 75, 0.08);
+  border: 1px solid rgba(232, 176, 75, 0.35);
+  border-radius: 14px;
+  padding: 12px 6px;
+  text-align: center;
+}
+
+.hero-row__img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.hero-row__name {
+  font-size: 17px;
+  color: var(--gold);
+}
+
+.hero-row__hint {
+  font-size: 12px;
+  color: var(--ink-dim);
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+/* --- 체크리스트 --- */
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+/* --- 진행 표시 --- */
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0 calc(12px + env(safe-area-inset-bottom));
+}
+
+.progress__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.progress__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(245, 234, 215, 0.25);
+  transition: all 0.25s;
+}
+
+.progress__dot--active {
+  background: var(--gold);
+  width: 20px;
+  border-radius: 999px;
+}
+
+.progress__counter {
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+
+/* --- 스와이프 힌트 --- */
+.swipe-hint {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  font-size: 28px;
+  color: var(--gold);
+  animation: hint 1.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hint {
+  0%,
+  100% {
+    transform: translate(0, -50%);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-10px, -50%);
+    opacity: 1;
+  }
+}
